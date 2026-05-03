@@ -1,0 +1,178 @@
+{
+  "generated_at": "2026-04-29T04:27:27.189Z",
+  "total_guideline_chunks": 327,
+  "total_faq_chunks": 16,
+  "grand_total": 343,
+  "file_stats": [
+    {
+      "filename": "cac_buoc_cham_soc_da.txt",
+      "chunks": 27,
+      "min": 77,
+      "max": 448,
+      "avg": 281
+    },
+    {
+      "filename": "cac_buoc_skincare.txt",
+      "chunks": 45,
+      "min": 60,
+      "max": 443,
+      "avg": 251
+    },
+    {
+      "filename": "cach_lam_trang_da_tai_nha.txt",
+      "chunks": 46,
+      "min": 63,
+      "max": 439,
+      "avg": 307
+    },
+    {
+      "filename": "cham_soc_da_bi_mat_nuoc.txt",
+      "chunks": 34,
+      "min": 65,
+      "max": 373,
+      "avg": 130
+    },
+    {
+      "filename": "cham_soc_da_nhay_cam.txt",
+      "chunks": 26,
+      "min": 69,
+      "max": 419,
+      "avg": 155
+    },
+    {
+      "filename": "cham_soc_da_sau_nan_mun.txt",
+      "chunks": 24,
+      "min": 61,
+      "max": 445,
+      "avg": 235
+    },
+    {
+      "filename": "da_kho.txt",
+      "chunks": 48,
+      "min": 60,
+      "max": 450,
+      "avg": 213
+    },
+    {
+      "filename": "tham_do_sau_mun.txt",
+      "chunks": 22,
+      "min": 68,
+      "max": 446,
+      "avg": 200
+    },
+    {
+      "filename": "thu_nho_lo_chan_long.txt",
+      "chunks": 55,
+      "min": 61,
+      "max": 442,
+      "avg": 238
+    }
+  ],
+  "acceptance_checks": [
+    {
+      "name": "Guidelines token range 60–450",
+      "pass": true,
+      "detail": "Tất cả trong range"
+    },
+    {
+      "name": "FAQ token range 40–450 (mỗi Q&A độc lập)",
+      "pass": true,
+      "detail": "Tất cả trong range"
+    },
+    {
+      "name": "Metadata đầy đủ (chunk_id, topic, language, content)",
+      "pass": true,
+      "detail": "Tất cả có metadata"
+    },
+    {
+      "name": "Topic thuộc TOPIC_ENUM",
+      "pass": true,
+      "detail": "Tất cả topic hợp lệ"
+    },
+    {
+      "name": "Không có HTML tags trong content",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "name": "Không có Markdown images còn sót",
+      "pass": true,
+      "detail": "Clean"
+    },
+    {
+      "name": "FAQ: đủ 6 categories",
+      "pass": true,
+      "detail": "Tìm thấy 6/6 categories: Về LunaBot & Công nghệ, Mua sắm & Thanh toán, Vận chuyển & Theo dõi đơn hàng, Chính sách Đổi trả & Hoàn tiền, Kiến thức Skincare (Cơ bản), An toàn & Miễn trừ trách nhiệm"
+    },
+    {
+      "name": "Tổng guidelines chunks ≥ 50",
+      "pass": true,
+      "detail": "Có 327 chunks"
+    }
+  ],
+  "all_criteria_pass": true,
+  "sample_chunks": [
+    {
+      "chunk_id": "cac_buoc_cham_soc_da_0000",
+      "source_file": "cac_buoc_cham_soc_da.txt",
+      "title": "Quy trình chăm sóc da cơ bản cho mọi loại da",
+      "section": "Quy trình chăm sóc da là gì?",
+      "topic": "general_routine",
+      "concern": [
+        "general",
+        "acne",
+        "moisturizing"
+      ],
+      "skin_type": [
+        "Oily",
+        "Dry",
+        "Normal",
+        "Combination",
+        "Sensitive"
+      ],
+      "language": "vi",
+      "chunk_index": 0,
+      "total_chunks": 27,
+      "estimated_tokens": 127,
+      "content": "Quy trình chăm sóc da là gì?\n\nQuy trình chăm sóc da là tập hợp các bước nhằm giữ cho làn da sạch, khỏe và ổn định theo thời gian. Quy trình này bao gồm các bước làm sạch, cấp ẩm và bảo vệ da cùng với các sản phẩm hỗ trợ như serum đặc trị, kem dưỡng, kem chống nắng. Khi thực hiện đều đặn, skincare giúp da duy trì hàng rào bảo vệ tự nhiên, hạn chế các vấn đề như mụn, khô ráp hay lão hóa sớm và góp phần cải thiện cấu trúc da một cách bền vững."
+    },
+    {
+      "chunk_id": "cham_soc_da_nhay_cam_0011",
+      "source_file": "cham_soc_da_nhay_cam.txt",
+      "title": "Da nhạy cảm: Dấu hiệu nhận biết và cách chăm sóc đúng cách",
+      "section": "Nguyên nhân da nhạy cảm là gì?",
+      "topic": "sensitive_skin",
+      "concern": [
+        "sensitive",
+        "redness",
+        "irritation"
+      ],
+      "skin_type": [
+        "Sensitive"
+      ],
+      "language": "vi",
+      "chunk_index": 11,
+      "total_chunks": 26,
+      "estimated_tokens": 77,
+      "content": "Nguyên nhân da nhạy cảm là gì?\n\nKhông ít người cho rằng da nhạy cảm là do bẩm sinh, nhưng thực tế, tình trạng này còn chịu ảnh hưởng từ nhiều yếu tố khác nhau - cả bên trong lẫn bên ngoài. Hiểu rõ nguyên nhân giúp bạn chủ động hơn trong việc chăm sóc và phục hồi làn da."
+    },
+    {
+      "chunk_id": "faq_bot_001",
+      "source_file": "faq.json",
+      "title": "FAQ - Về LunaBot & Công nghệ",
+      "section": "Về LunaBot & Công nghệ",
+      "topic": "faq_bot",
+      "concern": [
+        "general"
+      ],
+      "skin_type": [],
+      "language": "vi",
+      "chunk_index": 0,
+      "total_chunks": 16,
+      "estimated_tokens": 86,
+      "content": "Câu hỏi: LunaBot là ai và có đáng tin cậy không?\n\nTrả lời: Tôi là LunaBot - Trợ lý AI chuyên gia Skincare. Kiến thức của tôi được xây dựng dựa trên cơ sở dữ liệu của hơn 2.300 sản phẩm, 250 hoạt chất hóa học và các bài viết từ chuyên gia da liễu. Tuy nhiên, mọi thông tin chỉ mang tính chất tham khảo.",
+      "faq_id": "bot_001",
+      "original_question": "LunaBot là ai và có đáng tin cậy không?"
+    }
+  ]
+}

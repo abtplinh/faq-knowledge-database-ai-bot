@@ -1,0 +1,661 @@
+{
+  "generated_at": "2026-04-29T05:11:11.413Z",
+  "stats": {
+    "total": 2401,
+    "passed": 2401,
+    "dropped": 0,
+    "autoFixed": 10,
+    "flagged": 10,
+    "withIngredientsPct": 99,
+    "withSkinTypePct": 96,
+    "withDescriptionPct": 53,
+    "withImagePct": 52,
+    "emptyNameCount": 0,
+    "nanStringCount": 0,
+    "invalidSkinTypeCount": 0,
+    "htmlDescCount": 0
+  },
+  "rule_stats": [
+    {
+      "id": "R01",
+      "desc": "product_name không được rỗng",
+      "severity": "error",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R02",
+      "desc": "product_name không là chuỗi null-like",
+      "severity": "error",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R03",
+      "desc": "price_usd phải là số dương nếu có",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R04",
+      "desc": "price_usd trong khoảng $0.10–$2000",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R05",
+      "desc": "ingredients[] mỗi phần tử là chuỗi không rỗng",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R06",
+      "desc": "ingredients[] không chứa null-like strings",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R07",
+      "desc": "skin_type[] chỉ chứa: Oily | Dry | Normal | Combination | Sensitive",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R08",
+      "desc": "notable_effects[] mỗi phần tử không rỗng",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R09",
+      "desc": "source thuộc: skincare_clean | mp_skin | dermstore",
+      "severity": "error",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R10",
+      "desc": "image_url nếu có phải bắt đầu bằng http",
+      "severity": "warning",
+      "violations": 10,
+      "autoFixed": 10
+    },
+    {
+      "id": "R11",
+      "desc": "product_url nếu có phải bắt đầu bằng http",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R12",
+      "desc": "rating nếu có phải nằm trong [0, 5]",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R13",
+      "desc": "review_count nếu có là số nguyên không âm",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R14",
+      "desc": "description không chứa HTML tags",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    },
+    {
+      "id": "R15",
+      "desc": "how_to_use không chứa HTML tags",
+      "severity": "warning",
+      "violations": 0,
+      "autoFixed": 0
+    }
+  ],
+  "acceptance_check": [
+    {
+      "name": "0 empty product_name",
+      "pass": true,
+      "val": 0
+    },
+    {
+      "name": "0 'nan' string còn sót",
+      "pass": true,
+      "val": 0
+    },
+    {
+      "name": "0 invalid skin_type",
+      "pass": true,
+      "val": 0
+    },
+    {
+      "name": "0 HTML trong desc/how_to_use",
+      "pass": true,
+      "val": 0
+    },
+    {
+      "name": "ingredients ≥ 60%",
+      "pass": true,
+      "val": "99%"
+    },
+    {
+      "name": "skin_type ≥ 55%",
+      "pass": true,
+      "val": "96%"
+    },
+    {
+      "name": "total passed ≥ 2400",
+      "pass": true,
+      "val": 2401
+    }
+  ],
+  "all_pass": true,
+  "manual_review_sample": [
+    {
+      "id": "cowshed_cowshed_sleep_calming_bath_salts",
+      "product_name": "Cowshed SLEEP Calming Bath Salts",
+      "brand": "Cowshed",
+      "product_type": "Bath Salts",
+      "price_raw": "£18.00",
+      "price_usd": 22.86,
+      "ingredients_count": 23,
+      "ingredients_sample": [
+        "maris sal",
+        "himalayan salts",
+        "glycerin"
+      ],
+      "skin_type": [
+        "Normal",
+        "Dry",
+        "Combination",
+        "Oily"
+      ],
+      "notable_effects": [],
+      "source": "skincare_clean",
+      "has_description": false,
+      "has_image": false
+    },
+    {
+      "id": "garnier_garnier_bright_complete_3_in_1_anti_acne_face_wash",
+      "product_name": "Garnier Bright Complete 3 in 1 Anti Acne Face Wash",
+      "brand": "GARNIER",
+      "product_type": "Face Wash",
+      "price_raw": "Rp 35.000",
+      "price_usd": 2.23,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "cocamidopropyl betaine"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Moisturizing",
+        "Acne-Free"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "pyunkang_yul_pyunkang_yul_black_tea_serum",
+      "product_name": "PYUNKANG YUL Black Tea Serum",
+      "brand": "PYUNKANG YUL",
+      "product_type": "Serum",
+      "price_raw": "Rp 390.000",
+      "price_usd": 24.84,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Normal",
+        "Dry"
+      ],
+      "notable_effects": [
+        "Hydrating",
+        "Moisturizing",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "somethinc_somethinc_lemonade_waterless_vitamin_c_ferulic_nag",
+      "product_name": "Somethinc Lemonade Waterless Vitamin C + Ferulic + NAG",
+      "brand": "SOMETHINC",
+      "product_type": "Serum",
+      "price_raw": "Rp 129.000",
+      "price_usd": 8.22,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Normal",
+        "Dry",
+        "Oily",
+        "Combination"
+      ],
+      "notable_effects": [
+        "Moisturizing",
+        "Brightening",
+        "Black-Spot"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "scarlett_scarlett_whitening_facial_wash",
+      "product_name": "SCARLETT Whitening Facial Wash",
+      "brand": "SCARLETT",
+      "product_type": "Face Wash",
+      "price_raw": "Rp 82.500",
+      "price_usd": 5.25,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "cocamidopropyl betaine"
+      ],
+      "skin_type": [
+        "Dry"
+      ],
+      "notable_effects": [
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "snp_prep_snp_prep_cicaronic_toning_essence",
+      "product_name": "SNP PREP Cicaronic Toning Essence",
+      "brand": "SNP PREP",
+      "product_type": "Toner",
+      "price_raw": "Rp 180.000",
+      "price_usd": 11.46,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "niacinamide"
+      ],
+      "skin_type": [
+        "Dry",
+        "Sensitive"
+      ],
+      "notable_effects": [
+        "Hydrating",
+        "Soothing"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "hada_labo_hada_labo_gokujyun_alpha_lotion_100ml",
+      "product_name": "HADA LABO Gokujyun Alpha Lotion 100ml",
+      "brand": "HADA LABO",
+      "product_type": "Moisturizer",
+      "price_raw": "Rp 60.000",
+      "price_usd": 3.82,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "caprylic/capric triglyceride"
+      ],
+      "skin_type": [
+        "Dry"
+      ],
+      "notable_effects": [
+        "Pore-Care",
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "elshe_skin_elshe_skin_radiant_supple_serum",
+      "product_name": "ELSHE SKIN Radiant Supple Serum",
+      "brand": "ELSHE SKIN",
+      "product_type": "Serum",
+      "price_raw": "Rp 182.750",
+      "price_usd": 11.64,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Normal",
+        "Dry",
+        "Oily",
+        "Combination",
+        "Sensitive"
+      ],
+      "notable_effects": [
+        "Acne-Free",
+        "Brightening",
+        "Black-Spot"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "azarine_azarine_easy_white_nutrifull_night_cream",
+      "product_name": "AZARINE Easy White Nutrifull Night Cream",
+      "brand": "AZARINE",
+      "product_type": "Moisturizer",
+      "price_raw": "Rp 23.500",
+      "price_usd": 1.5,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "caprylic/capric triglyceride"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Pore-Care",
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "scarlett_scarlett_whitening_acne_serum",
+      "product_name": "SCARLETT WHITENING Acne Serum",
+      "brand": "SCARLETT",
+      "product_type": "Serum",
+      "price_raw": "Rp 66.000",
+      "price_usd": 4.2,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Sensitive"
+      ],
+      "notable_effects": [
+        "Pore-Care",
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "avoskin_avoskin_natural_sublime_facial_cleanser",
+      "product_name": "Avoskin Natural Sublime Facial Cleanser",
+      "brand": "AVOSKIN",
+      "product_type": "Face Wash",
+      "price_raw": "Rp 109.000",
+      "price_usd": 6.94,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "cocamidopropyl betaine"
+      ],
+      "skin_type": [
+        "Normal",
+        "Dry",
+        "Oily",
+        "Combination"
+      ],
+      "notable_effects": [
+        "Soothing",
+        "Balancing",
+        "Brightening"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "glowinc_potion_glowinc_potion_gentle_soothing_essence_toner",
+      "product_name": "GLOWINC POTION GENTLE+ Soothing Essence Toner",
+      "brand": "GLOWINC POTION",
+      "product_type": "Toner",
+      "price_raw": "Rp 89.000",
+      "price_usd": 5.67,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "niacinamide"
+      ],
+      "skin_type": [
+        "Dry"
+      ],
+      "notable_effects": [
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "skinmee_skinmee_treasure_perfect_radiance_serum",
+      "product_name": "SKINMEE Treasure Perfect Radiance Serum",
+      "brand": "SKINMEE",
+      "product_type": "Serum",
+      "price_raw": "Rp 179.000",
+      "price_usd": 11.4,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Pore-Care",
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "oribe_oribe_co_te_d_azur_restorative_body_cr_me_10_1_oz",
+      "product_name": "Oribe Côte d’Azur Restorative Body Crème 10.1 oz",
+      "brand": "Oribe",
+      "product_type": null,
+      "price_raw": "65.0",
+      "price_usd": 65,
+      "ingredients_count": 58,
+      "ingredients_sample": [
+        "aqua/water/eau",
+        "parfum/fragrance",
+        "propanediol"
+      ],
+      "skin_type": [],
+      "notable_effects": [],
+      "source": "dermstore",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "somethinc_somethinc_holyshield_sunscreen_shake_mist_spf46_pa",
+      "product_name": "Somethinc Holyshield! Sunscreen Shake Mist SPF46 PA+++",
+      "brand": "SOMETHINC",
+      "product_type": "Sunscreen",
+      "price_raw": "Rp 109.000",
+      "price_usd": 6.94,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "zinc oxide",
+        "titanium dioxide"
+      ],
+      "skin_type": [
+        "Sensitive"
+      ],
+      "notable_effects": [
+        "UV-Protection",
+        "No-Whitecast"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "glowinc_potion_glowinc_potion_hydralive_moisture_lock_serum",
+      "product_name": "GLOWINC POTION HYDRALIVE+ Moisture Lock Serum",
+      "brand": "GLOWINC POTION",
+      "product_type": "Serum",
+      "price_raw": "Rp 79.000",
+      "price_usd": 5.03,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Sensitive"
+      ],
+      "notable_effects": [
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "skin_game_skin_game_acne_combat",
+      "product_name": "SKIN GAME Acne Combat",
+      "brand": "SKIN GAME",
+      "product_type": "Serum",
+      "price_raw": "Rp 149.000",
+      "price_usd": 9.49,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Pore-Care",
+        "Brightening",
+        "Anti-Aging"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "bhumi_bhumi_hpr_retinol_serum",
+      "product_name": "BHUMI HPR Retinol Serum",
+      "brand": "BHUMI",
+      "product_type": "Serum",
+      "price_raw": "Rp 327.000",
+      "price_usd": 20.83,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Acne-Free",
+        "Pore-Care",
+        "Brightening"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "elshe_skin_elsheskin_brightening_refresh_toner",
+      "product_name": "Elsheskin Brightening Refresh Toner",
+      "brand": "ELSHE SKIN",
+      "product_type": "Toner",
+      "price_raw": "Rp 65.000",
+      "price_usd": 4.14,
+      "ingredients_count": 6,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "niacinamide"
+      ],
+      "skin_type": [
+        "Dry"
+      ],
+      "notable_effects": [
+        "Soothing",
+        "Balancing"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    },
+    {
+      "id": "some_by_mi_some_by_mi_super_matcha_pore_tightening_serum",
+      "product_name": "SOME BY MI Super Matcha Pore Tightening Serum",
+      "brand": "SOME BY MI",
+      "product_type": "Serum",
+      "price_raw": "Rp 480.000",
+      "price_usd": 30.57,
+      "ingredients_count": 7,
+      "ingredients_sample": [
+        "water",
+        "glycerin",
+        "hyaluronic acid"
+      ],
+      "skin_type": [
+        "Oily"
+      ],
+      "notable_effects": [
+        "Acne-Free",
+        "Pore-Care",
+        "Brightening"
+      ],
+      "source": "mp_skin",
+      "has_description": true,
+      "has_image": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "generated_at": "2026-04-26T09:56:12.119Z",
+  "elapsed_seconds": 0.1,
+  "sources": {
+    "src1": 1138,
+    "src2": 1224,
+    "src3": 126
+  },
+  "stats": {
+    "total": 2401,
+    "withIngredients": 2396,
+    "withIngredientsPercent": 100,
+    "withSkinType": 2301,
+    "withSkinTypePercent": 96,
+    "withEffects": 1138,
+    "withEffectsPercent": 47,
+    "withDescription": 1264,
+    "withDescriptionPercent": 53,
+    "withImage": 1264,
+    "withImagePercent": 53,
+    "withHowToUse": 123,
+    "withHowToUsePercent": 5,
+    "withPriceUsd": 2401,
+    "withPriceUsdPercent": 100,
+    "bySource": {
+      "dermstore": 126,
+      "mp_skin": 1138,
+      "skincare_clean": 1137
+    },
+    "mergedRecords": 1
+  },
+  "acceptance_check": [
+    {
+      "name": "Total ≥ 2400",
+      "pass": true
+    },
+    {
+      "name": "ingredients ≥ 60%",
+      "pass": true
+    },
+    {
+      "name": "skin_type ≥ 55%",
+      "pass": true
+    },
+    {
+      "name": "No HTML in desc/how_to_use",
+      "pass": true
+    },
+    {
+      "name": "Dermstore price_usd not null",
+      "pass": true
+    }
+  ],
+  "all_criteria_pass": true
+}

@@ -1,0 +1,872 @@
+{
+  "generatedAt": "2026-04-26T09:16:18.197Z",
+  "results": [
+    {
+      "filename": "ingredientsList1.csv",
+      "type": "csv",
+      "role": "ingredients_dict",
+      "desc": "Từ điển 259 hoạt chất (tác dụng, đối tượng dùng/tránh)",
+      "totalRows": 259,
+      "columns": [
+        {
+          "col": "﻿name",
+          "nullCnt": 1,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Alpha-Glucan Oligosaccharide",
+            "Aloe Vera",
+            "Allantoin"
+          ]
+        },
+        {
+          "col": "scientific_name",
+          "nullCnt": 244,
+          "nullPct": 94,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 94%"
+          ],
+          "samples": [
+            "5-Ureidohydantoin",
+            "Euterpe Oleracea Fruit Extract",
+            "Centella asiatica (L.) Urb."
+          ]
+        },
+        {
+          "col": "short_description",
+          "nullCnt": 1,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Alpha-glucan oligosaccharide is in a class of prebiotic ingredients also found on ingredients lists ",
+            "Aloe vera, also appear on ingredients lists as aloe barbadensis (aloe vera) leaf juice, contains aro",
+            "Allantoin occurs naturally in the body, but can also be derived from the root of the Comfrey plant o"
+          ]
+        },
+        {
+          "col": "what_is_it",
+          "nullCnt": 1,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Prebiotics are a type of non-digestible dietary fiber used in skincare products to support the skin'",
+            "Aloe vera is a skincare ingredient derived from the gel-like substance found inside the leaves of th",
+            "Allantoin is a skincare ingredient derived from plants such as comfrey root. It is known for its abi"
+          ]
+        },
+        {
+          "col": "what_does_it_do",
+          "nullCnt": 1,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Prebiotics offer benefits such as:\n\n- Help maintain a balanced and healthy skin microbiome by promot",
+            "Aloe vera offers multiple benefits for the skin. It helps to soothe and calm irritated or sunburned ",
+            "Allantoin is a calming, anti-inflammatory, and hydrating ingredient which promotes wound healing by "
+          ]
+        },
+        {
+          "col": "who_is_it_good_for",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "[' ', 'Acne', ' ', 'Blackheads', ' ', 'Redness', ' ', 'Pregnancy']",
+            "[' ', 'Dry and dehydrated skin', ' ', 'Impaired skin barrier', ' ', 'Radiance', ' ', 'Pregnancy', ' ",
+            "[' ', 'Fine Lines', ' ', 'Impaired skin barrier', ' ', 'Redness', ' ', 'Pregnancy']"
+          ]
+        },
+        {
+          "col": "who_should_avoid",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "[' ', 'Related Allergy']",
+            "[' ', 'Related Allergy']",
+            "[' ', 'Related Allergy']"
+          ]
+        },
+        {
+          "col": "url",
+          "nullCnt": 11,
+          "nullPct": 4,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://renude.co/ingredients/alpha-glucan-oligosaccharide",
+            "https://renude.co/ingredients/aloe-vera",
+            "https://renude.co/ingredients/allantoin"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "skincare_products_clean.csv",
+      "type": "csv",
+      "role": "products_src1",
+      "desc": "1138 sản phẩm + bảng thành phần (£ GBP)",
+      "totalRows": 1138,
+      "columns": [
+        {
+          "col": "product_name",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "The Ordinary Natural Moisturising Factors + HA 30ml",
+            "CeraVe Facial Moisturising Lotion SPF 25 52ml",
+            "The Ordinary Hyaluronic Acid 2% + B5 Hydration Support Formula 30ml"
+          ]
+        },
+        {
+          "col": "product_url",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://www.lookfantastic.com/the-ordinary-natural-moisturising-factors-ha-30ml/11396687.html",
+            "https://www.lookfantastic.com/cerave-facial-moisturising-lotion-spf-25-52ml/11798689.html",
+            "https://www.lookfantastic.com/the-ordinary-hyaluronic-acid-2-b5-hydration-support-formula-30ml/11363"
+          ]
+        },
+        {
+          "col": "product_type",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Moisturiser",
+            "Moisturiser",
+            "Moisturiser"
+          ]
+        },
+        {
+          "col": "clean_ingreds",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "['capric triglyceride', 'cetyl alcohol', 'propanediol', 'stearyl alcohol', 'glycerin', 'sodium hyalu",
+            "['homosalate', 'glycerin', 'octocrylene', 'ethylhexyl', 'salicylate', 'niacinamide', 'silica', 'buty",
+            "['sodium hyaluronate', 'sodium hyaluronate', 'panthenol', 'ahnfeltia concinna extract', 'glycerin', "
+          ]
+        },
+        {
+          "col": "price",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "£5.20",
+            "£13.00",
+            "£6.20"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "MP-Skin Care Product Recommendation System3.csv",
+      "type": "csv",
+      "role": "products_src2",
+      "desc": "1224 sản phẩm + skin_type + notable_effects (Rp IDR)",
+      "totalRows": 1224,
+      "columns": [
+        {
+          "col": "﻿product_href",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://www.beautyhaul.com/product/detail/bubble-free-ph-balancing-cleanser",
+            "https://www.sociolla.com/face-wash/62452-ph-balancing-soothing-cleansing-foam",
+            "https://www.sociolla.com/toner/15871-licorice-ph-balancing-cleansing-toner"
+          ]
+        },
+        {
+          "col": "product_name",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "ACWELL Bubble Free PH Balancing Cleanser",
+            "ACWELL pH Balancing Soothing Cleansing Foam",
+            "Acwell Licorice pH Balancing Cleansing Toner "
+          ]
+        },
+        {
+          "col": "product_type",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Face Wash",
+            "Face Wash",
+            "Toner"
+          ]
+        },
+        {
+          "col": "brand",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "ACWELL ",
+            "ACWELL ",
+            "ACWELL "
+          ]
+        },
+        {
+          "col": "notable_effects",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Acne-Free, Pore-Care, Brightening, Anti-Aging",
+            "Soothing, Balancing",
+            "Soothing, Balancing"
+          ]
+        },
+        {
+          "col": "skintype",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Oily",
+            "Normal, Dry, Combination",
+            "Normal, Dry, Oily, Combination, Sensitive"
+          ]
+        },
+        {
+          "col": "price",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Rp 209.000",
+            "Rp 181.800",
+            "Rp 149.000"
+          ]
+        },
+        {
+          "col": "description",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Mengangkat kotoran dan menghapus makeup dalam 1 step, sekaligus menjaga pH alami kulit. Membersihkan",
+            "Membersihkan dan menenangkan kulit sensitif dengan gelembung padat. Membersihkan kotoran dan sebum d",
+            "Mengangkat sisa kotoran, debu, dan make up sekaligus menyeimbangkan pH alami kulit!"
+          ]
+        },
+        {
+          "col": "picture_src",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://www.beautyhaul.com/assets/uploads/products/thumbs/800x800/ACWELL_BUBBLE_FREE_PH_BALANCING_CL",
+            "https://images.soco.id/8f08ced0-344d-41f4-a15e-9e45c898f92d-.jpg",
+            "https://www.soco.id/cdn-cgi/image/w=73,format=auto,dpr=1.45/https://images.soco.id/19667957711-15836"
+          ]
+        },
+        {
+          "col": "description_en",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Removes dirt and removes makeup in 1 step, while maintaining the skin's natural pH. Gently cleanses ",
+            "Cleanses and soothes sensitive skin with dense bubbles. Gently cleanses dirt and sebum, keeping skin",
+            "Removes remaining dirt, dust and make up while balancing the skin's natural pH!"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "dermstore_data.json",
+      "type": "json_array",
+      "role": "products_src3",
+      "desc": "126 sản phẩm cao cấp, có description & how_to_use (USD)",
+      "totalRows": 126,
+      "columns": [
+        {
+          "col": "url",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://www.dermstore.com/p/exclusive-neostrata-anti-aging-firming-duo/13441438/",
+            "https://www.dermstore.com/p/pmd-pmd-clean-1-piece/12905594/",
+            "https://www.dermstore.com/p/neom-focus-the-mind-essential-oil-blend-10ml/12540840/"
+          ]
+        },
+        {
+          "col": "title",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Exclusive NEOSTRATA Anti-Aging Firming Duo",
+            "PMD Clean (1 piece)",
+            "NEOM Focus the Mind Essential Oil Blend 0.3 fl. oz"
+          ]
+        },
+        {
+          "col": "brand",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Neostrata",
+            "PMD",
+            "NEOM"
+          ]
+        },
+        {
+          "col": "sku",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "13441438",
+            "12905594",
+            "12540840"
+          ]
+        },
+        {
+          "col": "product_id",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "13441438",
+            "12905594",
+            "12540840"
+          ]
+        },
+        {
+          "col": "price",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "188.0",
+            "79.2",
+            "24.0"
+          ]
+        },
+        {
+          "col": "currency",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "USD",
+            "USD",
+            "USD"
+          ]
+        },
+        {
+          "col": "availability",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "OutOfStock",
+            "InStock",
+            "InStock"
+          ]
+        },
+        {
+          "col": "condition",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "NewCondition",
+            "NewCondition",
+            "NewCondition"
+          ]
+        },
+        {
+          "col": "rating_value",
+          "nullCnt": 66,
+          "nullPct": 52,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 52%"
+          ],
+          "samples": [
+            "4.38",
+            "4.33",
+            "5"
+          ]
+        },
+        {
+          "col": "review_count",
+          "nullCnt": 66,
+          "nullPct": 52,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 52%"
+          ],
+          "samples": [
+            "16",
+            "6",
+            "1"
+          ]
+        },
+        {
+          "col": "category",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Brands / NEOSTRATA / Exclusive NEOSTRATA Anti-Aging Firming Duo",
+            "Brands / PMD / PMD Clean (1 piece)",
+            "Brands / NEOM / NEOM Focus the Mind Essential Oil Blend 0.3 fl. oz"
+          ]
+        },
+        {
+          "col": "description",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            " This anti aging neck cream is formulated with three clinically proven matrix building ingredients, ",
+            " Give yourself a mini facial with help from PMD's Clean. Chic and portable, this skin care device fe",
+            " Bringing you back to the present moment in a snap, the  Focus the Mind Essential Oil Blend  from na"
+          ]
+        },
+        {
+          "col": "ingredients",
+          "nullCnt": 6,
+          "nullPct": 5,
+          "htmlCnt": 1,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ HTML"
+          ],
+          "samples": [
+            "Aqua (Water), Acetyl Glucosamine, Cyclopentasiloxane, Triethyl Citrate, Cetearyl Alcohol, C1215 Alky",
+            "Silicone AA Battery.\nFor the latest information, it is recommended to review the ingredient list pri",
+            "Caprylic/Capric Triglyceride, Eucalyptus Globulus Leaf Oil, Juniperus Mexicana Wood Oil, Pinus Sylve"
+          ]
+        },
+        {
+          "col": "raw_ingredients",
+          "nullCnt": 6,
+          "nullPct": 5,
+          "htmlCnt": 120,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ HTML"
+          ],
+          "samples": [
+            "<div aria-labelledby=\"Ingredients\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperl",
+            "<div aria-labelledby=\"Ingredients\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperl",
+            "<div aria-labelledby=\"Ingredients\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperl"
+          ]
+        },
+        {
+          "col": "how_to_use",
+          "nullCnt": 3,
+          "nullPct": 2,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "Gently smooth over neck and décolletage twice daily.\nApply 3-5 drops to the face after cleansing (mo",
+            "Step 1: Rinse and Apply Cleanser.\n  Rinse face with warm water and gently rub in cleanser.\n  Step 2:",
+            "To experience the full Feel Good Vibes Essential Oil Blend experience, use in your Wellbeing Pod.\n\nF"
+          ]
+        },
+        {
+          "col": "raw_how_to_use",
+          "nullCnt": 3,
+          "nullPct": 2,
+          "htmlCnt": 123,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ HTML"
+          ],
+          "samples": [
+            "<div aria-labelledby=\"How-to-Use\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperli",
+            "<div aria-labelledby=\"How-to-Use\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperli",
+            "<div aria-labelledby=\"How-to-Use\" class=\"content max-h-0 invisible translate-y-1/4 underline-hyperli"
+          ]
+        },
+        {
+          "col": "skin_type_and_concerns",
+          "nullCnt": 73,
+          "nullPct": 58,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 58%"
+          ],
+          "samples": [
+            "Acne: BlackheadsAging Skin: Loss of FirmnessApplication Area: FaceIdeal for these Concerns: Acne, La",
+            "Application Area: Hair, ScalpIdeal for these Concerns: Damaged Hair, Free Radical Damage, Frizzy Hai",
+            "Application Area: HairIdeal for these Concerns: Damaged Hair, Frizzy HairHair Care: ShampooHair Type"
+          ]
+        },
+        {
+          "col": "raw_skin_type_and_concerns",
+          "nullCnt": 73,
+          "nullPct": 58,
+          "htmlCnt": 53,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ HTML",
+            "⚠️ NULL 58%"
+          ],
+          "samples": [
+            "<div aria-labelledby=\"Skin-Type-&amp;-Concerns\" class=\"content max-h-0 invisible translate-y-1/4 und",
+            "<div aria-labelledby=\"Skin-Type-&amp;-Concerns\" class=\"content max-h-0 invisible translate-y-1/4 und",
+            "<div aria-labelledby=\"Skin-Type-&amp;-Concerns\" class=\"content max-h-0 invisible translate-y-1/4 und"
+          ]
+        },
+        {
+          "col": "range",
+          "nullCnt": 82,
+          "nullPct": 65,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 65%"
+          ],
+          "samples": [
+            "Curl Charisma",
+            "Sublime Gold",
+            "Curl Defining"
+          ]
+        },
+        {
+          "col": "volume",
+          "nullCnt": 62,
+          "nullPct": 49,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [
+            "⚠️ NULL 49%"
+          ],
+          "samples": [
+            "80ml",
+            "10ml",
+            "236ml"
+          ]
+        },
+        {
+          "col": "images",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "https://static.thcdn.com/productimg/original/13441438-1074907545957458.jpg, https://static.thcdn.com",
+            "https://static.thcdn.com/productimg/original/12905594-1484871062629315.jpg, https://static.thcdn.com",
+            "https://static.thcdn.com/productimg/original/12540840-6904928010935181.jpg, https://static.thcdn.com"
+          ]
+        },
+        {
+          "col": "uniq_id",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "6635eafe-d8bd-53c7-b232-d359b208b4a1",
+            "7c436149-00ab-56d5-8274-cf24a991dbaf",
+            "6c9186b2-c19d-55e5-a45b-c6be55bc74d6"
+          ]
+        },
+        {
+          "col": "scraped_at",
+          "nullCnt": 0,
+          "nullPct": 0,
+          "htmlCnt": 0,
+          "encCnt": 0,
+          "issues": [],
+          "samples": [
+            "02/11/2024 11:15:28",
+            "02/11/2024 11:15:29",
+            "02/11/2024 11:15:33"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "faq.json",
+      "type": "json_nested",
+      "role": "faq",
+      "desc": "FAQ vận hành website (6 categories, 16 Q&A)",
+      "structure": "nested_categories",
+      "totalCategories": 6,
+      "totalItems": 16,
+      "categories": [
+        {
+          "category": "Về LunaBot & Công nghệ",
+          "itemCount": 3
+        },
+        {
+          "category": "Mua sắm & Thanh toán",
+          "itemCount": 3
+        },
+        {
+          "category": "Vận chuyển & Theo dõi đơn hàng",
+          "itemCount": 3
+        },
+        {
+          "category": "Chính sách Đổi trả & Hoàn tiền",
+          "itemCount": 2
+        },
+        {
+          "category": "Kiến thức Skincare (Cơ bản)",
+          "itemCount": 3
+        },
+        {
+          "category": "An toàn & Miễn trừ trách nhiệm",
+          "itemCount": 2
+        }
+      ],
+      "columns": []
+    }
+  ],
+  "schemaMap": [
+    {
+      "concept": "Tên sản phẩm",
+      "src1": "product_name",
+      "src2": "product_name",
+      "src3": "title",
+      "unified": "product_name",
+      "etl_action": "Rename dermstore.title → product_name"
+    },
+    {
+      "concept": "Thương hiệu",
+      "src1": "❌ THIẾU",
+      "src2": "brand",
+      "src3": "brand",
+      "unified": "brand",
+      "etl_action": "src1: extract từ product_name (từ đầu tiên viết hoa)"
+    },
+    {
+      "concept": "Loại sản phẩm",
+      "src1": "product_type (14 loại, tiếng Anh)",
+      "src2": "product_type (5 loại: Face Wash/Toner/Serum/Moisturizer/Sunscreen)",
+      "src3": "category = 'Brands / X / Product Name' → split('/')[1]",
+      "unified": "product_type",
+      "etl_action": "src3: category.split('/')[1].trim(). Normalize tên (Moisturizer vs Moisturiser)"
+    },
+    {
+      "concept": "Giá",
+      "src1": "price: '£5.20' (GBP string)",
+      "src2": "price: 'Rp 209.000' (IDR string, dấu . = nghìn)",
+      "src3": "price: 188.0 (USD float), currency: 'USD'",
+      "unified": "price_raw (giữ nguyên) + price_usd (float)",
+      "etl_action": "src1: £ × 1.27. src2: strip 'Rp ', replace('.','') / 15700. src3: dùng trực tiếp"
+    },
+    {
+      "concept": "Bảng thành phần",
+      "src1": "clean_ingreds: \"['a','b','c']\" (Python list-string!)",
+      "src2": "❌ THIẾU",
+      "src3": "ingredients (text thuần, comma-separated) + raw_ingredients (HTML — bỏ qua)",
+      "unified": "ingredients: string[]",
+      "etl_action": "src1: eval-safe parse list-string. src3: split(',').map(trim.toLowerCase)"
+    },
+    {
+      "concept": "Loại da phù hợp",
+      "src1": "❌ THIẾU",
+      "src2": "skintype: 'Oily' | 'Normal, Dry, Combination' (comma-string)",
+      "src3": "skin_type_and_concerns: chuỗi dài key:value (73/126 NULL!)",
+      "unified": "skin_type: string[] (enum: Oily/Dry/Normal/Combination/Sensitive)",
+      "etl_action": "src2: split(',').map(trim). src3: extract 'Skin Type:' section bằng regex"
+    },
+    {
+      "concept": "Công dụng",
+      "src1": "❌ THIẾU",
+      "src2": "notable_effects: 'Acne-Free, Pore-Care, Brightening' (comma-string)",
+      "src3": "❌ THIẾU (mention trong description)",
+      "unified": "notable_effects: string[]",
+      "etl_action": "src2: split(',').map(trim). src3: để trống []"
+    },
+    {
+      "concept": "Mô tả sản phẩm",
+      "src1": "❌ THIẾU",
+      "src2": "description_en (EN) — ưu tiên hơn description (ID)",
+      "src3": "description (text thuần)",
+      "unified": "description",
+      "etl_action": "src2: lấy description_en. src3: lấy description trực tiếp"
+    },
+    {
+      "concept": "Link sản phẩm",
+      "src1": "product_url",
+      "src2": "product_href",
+      "src3": "url",
+      "unified": "product_url",
+      "etl_action": "Rename src2.product_href + src3.url → product_url"
+    },
+    {
+      "concept": "Hình ảnh",
+      "src1": "❌ THIẾU",
+      "src2": "picture_src (1 URL)",
+      "src3": "images: 'url1, url2, ...' (comma-list) → lấy [0]",
+      "unified": "image_url",
+      "etl_action": "src3: images.split(',')[0].trim()"
+    },
+    {
+      "concept": "Cách dùng",
+      "src1": "❌ THIẾU",
+      "src2": "❌ THIẾU",
+      "src3": "how_to_use (text thuần) — raw_how_to_use là HTML bỏ qua",
+      "unified": "how_to_use",
+      "etl_action": "src3: lấy how_to_use trực tiếp"
+    },
+    {
+      "concept": "Rating",
+      "src1": "❌ THIẾU",
+      "src2": "❌ THIẾU",
+      "src3": "rating_value (string, 66/126 NULL) + review_count",
+      "unified": "rating + review_count",
+      "etl_action": "parseFloat(rating_value) || null"
+    }
+  ],
+  "issues": [
+    {
+      "priority": "🔴 P0 — Blocking",
+      "file": "skincare_products_clean.csv",
+      "field": "clean_ingreds",
+      "problem": "Python list-string: \"['a','b']\" — không phải JS array",
+      "fix": "Parse bằng JSON.parse sau khi thay ' → \". Xử lý trong T-03"
+    },
+    {
+      "priority": "🔴 P0 — Blocking",
+      "file": "dermstore_data.json",
+      "field": "raw_ingredients, raw_how_to_use",
+      "problem": "Chứa HTML đầy đủ Tailwind class, không đọc được",
+      "fix": "Dùng trường 'ingredients' và 'how_to_use' (đã clean). Bỏ qua raw_*"
+    },
+    {
+      "priority": "🔴 P0 — Blocking",
+      "file": "dermstore_data.json",
+      "field": "category",
+      "problem": "'Brands / NEOSTRATA / Product Name' — cần lấy phần [1]",
+      "fix": "category.split('/')[1].trim() trong ETL"
+    },
+    {
+      "priority": "🟡 P1 — Important",
+      "file": "dermstore_data.json",
+      "field": "skin_type_and_concerns",
+      "problem": "73/126 records NULL. Khi có giá trị thì là chuỗi dài key:value",
+      "fix": "Regex extract 'Skin Type: X, Y' sau đó normalize về enum"
+    },
+    {
+      "priority": "🟡 P1 — Important",
+      "file": "Tất cả",
+      "field": "price",
+      "problem": "3 currencies khác nhau: £ GBP, Rp IDR, USD float",
+      "fix": "Giữ price_raw + thêm price_usd (convert). Xem normalizePrice() ở T-03"
+    },
+    {
+      "priority": "🟡 P1 — Important",
+      "file": "skincare_products_clean.csv",
+      "field": "brand",
+      "problem": "Cột brand không tồn tại",
+      "fix": "Extract từ product_name — heuristic: từ đầu viết hoa"
+    },
+    {
+      "priority": "🟡 P1 — Important",
+      "file": "MP-Skin_Care_...csv",
+      "field": "skintype",
+      "problem": "'Normal, Dry, Combination' — 15+ biến thể, cần normalize về enum chuẩn",
+      "fix": "split(',').map(trim) → map về SKIN_TYPE_ENUM"
+    },
+    {
+      "priority": "🟢 P2 — Nice to have",
+      "file": "dermstore_data.json",
+      "field": "images",
+      "problem": "Comma-separated list nhiều URL",
+      "fix": "split(',')[0].trim() → lấy ảnh đầu tiên"
+    },
+    {
+      "priority": "🟢 P2 — Nice to have",
+      "file": "ingredientsList1.csv",
+      "field": "who_is_it_good_for / who_should_avoid",
+      "problem": "Cũng là Python list-string: \"[' ', 'Acne', ' ', 'Blackheads']\"",
+      "fix": "Parse + filter string rỗng. Xử lý trong T-02"
+    }
+  ]
+}
