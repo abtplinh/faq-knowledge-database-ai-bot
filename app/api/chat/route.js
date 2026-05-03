@@ -18,25 +18,32 @@ const AI_MODEL = 'gemini-2.5-flash';
 // Only send last 5 messages to the model to save tokens
 const MAX_HISTORY_MESSAGES = 5;
 
-const LUNA_PERSONA = `Bạn là LunaBot - Trợ lý AI chuyên gia Skincare của Luna Beauty.
-
+// ── Layer 2: Guardrail System Prompt ─────────────────────────
+// Hard rules embedded directly in the persona that the model MUST obey.
+// Even if weak context slips through Layer 1, the model is explicitly
+// forbidden from using its pre-trained medical / pharmaceutical knowledge.
+const LUNA_PERSONA = `Bạn là LunaBot, trợ lý tư vấn mỹ phẩm chăm sóc da của Luna Beauty.
 Tính cách: Thân thiện, chuyên nghiệp, ân cần như một người bạn hiểu biết về làm đẹp.
-Ngôn ngữ: Trả lời bằng tiếng Việt, nếu người dùng hỏi tiếng Anh thì trả lời bằng tiếng Anh, tự nhiên, dễ hiểu. Dùng emoji nhẹ nhàng khi phù hợp.
+Ngôn ngữ: Trả lời bằng tiếng Việt. Nếu người dùng hỏi tiếng Anh thì trả lời tiếng Anh. Dùng emoji nhẹ nhàng khi phù hợp.
 
-Nguyên tắc:
-- Luôn tư vấn dựa trên thông tin đã được cung cấp trong context.
-- Nếu không có thông tin trong context, thành thật nói không biết thay vì bịa đặt.
-- Khi gợi ý sản phẩm: ưu tiên phù hợp loại da, ngân sách và vấn đề da của user.
-- Khi nêu thành phần hóa học: giải thích ngắn gọn công dụng.
-- Luôn khuyến khích patch test trước khi dùng sản phẩm mới.
-- Không chẩn đoán bệnh da liễu — hãy tư vấn gặp bác sĩ nếu tình trạng nghiêm trọng.
-- Kết thúc mỗi câu trả lời bằng câu hỏi mở để tiếp tục cuộc trò chuyện (nếu phù hợp).
+[Quy tắc Tối Thượng — KHÔNG ĐƯỢC VI PHẠM]:
+1. Nhiệm vụ của bạn là trả lời DỰA VÀO VÀ CHỈ DỰA VÀO bối cảnh (Context) được cung cấp bên dưới.
+2. NẾU bối cảnh (Context) trống HOẶC câu hỏi nằm ngoài thông tin trong bối cảnh (đặc biệt là các câu hỏi về thuốc kê đơn như Isotretinoin, kháng sinh, corticoid, hoặc bệnh lý da liễu nặng), bạn TUYỆT ĐỐI KHÔNG dùng kiến thức có sẵn để tư vấn y tế. Thay vào đó, hãy xử lý linh hoạt theo CÔNG THỨC 6 BƯỚC sau:
+   - Bước 1 (Đồng cảm): Thể hiện sự thấu hiểu với nỗi lo lắng hoặc sự quan tâm của người dùng (VD: "LunaBot rất hiểu sự lo lắng của bạn về tình trạng mụn hiện tại...").
+   - Bước 2 (Ghi nhận từ khóa): Nhắc lại nhẹ nhàng tên thuốc hoặc vấn đề user vừa hỏi để họ biết bạn đang lắng nghe (VD: "Về việc cân nhắc sử dụng Isotretinoin...").
+   - Bước 3 (Nêu giới hạn): Khẳng định lại vai trò một cách khiêm tốn (VD: "Tuy nhiên, LunaBot chỉ là trợ lý AI chuyên về mỹ phẩm chăm sóc da bôi thoa, không có dữ liệu chuyên khoa về các loại thuốc kê đơn.").
+   - Bước 4 (Cảnh báo an toàn): Nhấn mạnh rủi ro y tế một cách nhẹ nhàng (VD: "Đây là các loại thuốc có dược tính rất mạnh, việc tự ý sử dụng có thể đi kèm tác dụng phụ ngoài ý muốn.").
+   - Bước 5 (Định hướng hành động): Hướng dẫn giải pháp đúng đắn (VD: "Để đảm bảo an toàn tuyệt đối, bạn hãy dành chút thời gian ghé thăm bác sĩ da liễu để được thăm khám và lên phác đồ chính xác nhé!").
+   - Bước 6 (Chuyển hướng & Mở lối): Quay lại chuyên môn của Bot và đặt một câu hỏi mở để giữ chân khách hàng (VD: "Trong lúc chờ đợi đi khám, nếu bạn cần LunaBot gợi ý một số sản phẩm làm sạch dịu nhẹ hoặc kem dưỡng phục hồi màng bảo vệ da, hãy cho Luna biết nha! Bạn hiện đang dùng sữa rửa mặt loại nào?").
+3. Không chẩn đoán bệnh da liễu — luôn khuyến khích gặp bác sĩ nếu tình trạng nghiêm trọng.
+4. Khi gợi ý sản phẩm (chỉ khi có trong Context): ưu tiên phù hợp loại da, ngân sách và vấn đề da của người dùng.
+5. Luôn khuyến khích patch test trước khi dùng sản phẩm mới.
 
 Format khi giới thiệu sản phẩm:
 - Tên sản phẩm và thương hiệu rõ ràng
 - Công dụng chính
 - Phù hợp loại da nào
-- Giá (nếu có)
+- Giá (nếu có). Nếu thông tin giá cả trong cơ sở dữ liệu là USD, hãy tự động quy đổi sang VNĐ với tỉ giá cập nhật theo thị trường hiện nay trước khi trả lời người dùng.
 - Nếu có link mua → để user bấm vào (hệ thống sẽ tự render nút)`;
 
 // ── Main handler ─────────────────────────────────────────────
@@ -152,8 +159,10 @@ export async function POST(req) {
     profileResult.status === 'fulfilled' ? (profileResult.value?.data ?? {}) : {};
 
   // Resolve RAG (non-fatal — fall back to empty)
-  const { contextText = '', products = [] } =
+  const { contextText = '', products = [], hasContext = false } =
     ragResult.status === 'fulfilled' ? ragResult.value : {};
+
+  console.log(`[chat/route] hasContext=${hasContext} | products=${products.length}`);
 
   // Persist user message (fire-and-forget, don't block the stream)
   supabaseAdmin
@@ -162,13 +171,54 @@ export async function POST(req) {
     .then(() => { })
     .catch((err) => console.error('Error saving user message:', err));
 
+  // ── Layer 1 Guard: No relevant context found ──────────────
+  // If nothing in the vector DB passed the similarity threshold, return
+  // the standard refusal message immediately — WITHOUT calling the LLM.
+  // This is the strongest possible defence against knowledge leakage
+  // because the model is never invoked at all.
+  if (!hasContext) {
+    const refusalText =
+      'Xin lỗi, hiện tại cơ sở dữ liệu của LunaBot chưa có thông tin về vấn đề này. ' +
+      'Bạn vui lòng liên hệ trực tiếp bác sĩ da liễu để được tư vấn chính xác nhất nhé! 🙏';
+
+    // Persist the refusal as an assistant message so conversation history is complete
+    supabaseAdmin
+      .from('messages')
+      .insert({ conversation_id: convId, role: 'assistant', content: refusalText })
+      .then(() => { })
+      .catch(() => { });
+
+    // Return as a plain streaming-compatible text response so the frontend
+    // chat UI renders it identically to any other assistant message.
+    const encoder = new TextEncoder();
+    const stream = new ReadableStream({
+      start(controller) {
+        // UIMessageChunk format required by AI SDK v6 useChat
+        controller.enqueue(encoder.encode(`0:${JSON.stringify(refusalText)}\n`));
+        controller.enqueue(encoder.encode(`e:{"finishReason":"stop","usage":{"promptTokens":0,"completionTokens":0}}\n`));
+        controller.enqueue(encoder.encode(`d:{"finishReason":"stop","usage":{"promptTokens":0,"completionTokens":0}}\n`));
+        controller.close();
+      },
+    });
+
+    return new Response(stream, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'X-Vercel-AI-Data-Stream': 'v1',
+        ...(convId ? { 'X-Conversation-Id': String(convId) } : {}),
+      },
+    });
+  }
+
   // ── 4. Build System Prompt ────────────────────────────────
   const profileContext = buildProfileContext(profile);
 
+  // Layer 2 is already embedded in LUNA_PERSONA (the hard guardrails).
+  // Here we inject the retrieved context so the model has real knowledge to work from.
   const systemPrompt = [
     LUNA_PERSONA,
     profileContext ? `\n## THÔNG TIN VỀ KHÁCH HÀNG\n${profileContext}` : '',
-    contextText ? `\n## NGỮ CẢNH TỪ CƠ SỞ DỮ LIỆU\n${contextText}` : '',
+    `\n## NGỮ CẢNH TỪ CƠ SỞ DỮ LIỆU (đây là nguồn duy nhất bạn được phép dùng)\n${contextText}`,
     '\n## QUY TẮC ĐỊNH DẠNG KHI TRẢ LỜI',
     'Khi đề cập sản phẩm có link mua, viết link đầy đủ. Hệ thống sẽ tự render thành nút bấm.',
   ]
