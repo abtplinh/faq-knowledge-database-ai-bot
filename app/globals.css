@@ -328,6 +328,11 @@ main {
   z-index: 1;
   scrollbar-width: thin;
   scrollbar-color: var(--border) transparent;
+  /* Smooth scroll for long conversations */
+  scroll-behavior: smooth;
+  scroll-padding-bottom: 80px;
+  /* Momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 .messages-list {

@@ -15,8 +15,8 @@ const google = createGoogleGenerativeAI({ apiKey: process.env.GEMINI_API_KEY });
 const AI_MODEL = 'gemini-2.5-flash';
 
 // ── Constants ────────────────────────────────────────────────
-// Only send last 5 messages to the model to save tokens
-const MAX_HISTORY_MESSAGES = 5;
+// Only send last 4 messages to the model to save tokens (as per spec)
+const MAX_HISTORY_MESSAGES = 4;
 
 // ── Layer 2: Guardrail System Prompt ─────────────────────────
 // Hard rules embedded directly in the persona that the model MUST obey.
@@ -268,10 +268,23 @@ export async function POST(req) {
           }
 
           // Rule-based profile extraction (no extra Gemini call).
-          // Only run every 5 messages to reduce Supabase write frequency.
-          const totalMessages = messages.length;
-          if (totalMessages > 0 && totalMessages % 5 === 0) {
-            extractUserProfile(messages)
+          // Normalize UIMessage (AI SDK v6 parts[] format) → plain { role, content: string }
+          // before passing to extractUserProfile, which expects .content as string.
+          const normalizedMsgs = messages.map((m) => ({
+            role: m.role,
+            content:
+              typeof m.content === 'string'
+                ? m.content
+                : Array.isArray(m.parts)
+                  ? m.parts.filter((p) => p.type === 'text').map((p) => p.text).join(' ')
+                  : Array.isArray(m.content)
+                    ? m.content.filter((p) => p.type === 'text').map((p) => p.text).join(' ')
+                    : '',
+          }));
+          // Only run every 4 messages to reduce Supabase write frequency.
+          const totalMessages = normalizedMsgs.length;
+          if (totalMessages > 0 && totalMessages % 4 === 0) {
+            extractUserProfile(normalizedMsgs)
               .then((extracted) => upsertProfile(supabaseAdmin, sessionId, extracted))
               .catch(() => { });
           }

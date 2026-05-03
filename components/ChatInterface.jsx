@@ -43,10 +43,26 @@ export default function ChatInterface() {
 
   const [input, setInput] = useState('');
 
-  // Custom fetch wrapper to intercept X-Conversation-Id header from streaming response.
-  // This is necessary because @ai-sdk/react v3 removed the onResponse callback.
+  // Custom fetch wrapper that:
+  // 1. Injects the CURRENT conversationId (from ref, not stale state) into the request body.
+  // 2. Intercepts X-Conversation-Id header from the streaming response to capture new convId.
+  // This is necessary because @ai-sdk/react v3 removed onResponse, and DefaultChatTransport
+  // body option is captured at hook-creation time (stale closure if using state directly).
   const fetchWithConvId = useCallback(async (input, init) => {
-    const res = await fetch(input, init);
+    // Inject the latest conversationId into the JSON body before sending
+    let modifiedInit = init;
+    if (init?.body) {
+      try {
+        const parsed = JSON.parse(init.body);
+        // Always use the ref value — never the stale state closure
+        parsed.conversationId = conversationIdRef.current ?? null;
+        modifiedInit = { ...init, body: JSON.stringify(parsed) };
+      } catch {
+        // If body parse fails, fall through with original init
+      }
+    }
+
+    const res = await fetch(input, modifiedInit);
     const newConvId = res.headers.get('X-Conversation-Id');
     if (newConvId) {
       if (!conversationIdRef.current) {
@@ -66,7 +82,9 @@ export default function ChatInterface() {
   } = useChat({
     transport: new DefaultChatTransport({
       api: '/api/chat',
-      body: { sessionId, conversationId },
+      // sessionId is stable (from localStorage), conversationId is injected
+      // dynamically per-request via fetchWithConvId to avoid stale closure.
+      body: { sessionId },
       fetch: fetchWithConvId,
     }),
     onFinish: async () => {
@@ -104,16 +122,23 @@ export default function ChatInterface() {
       if (!res.ok) return;
       const data = await res.json();
       if (data.messages) {
+        // Map DB messages → AI SDK v6 UIMessage format (parts[] required for useChat v3)
         setMessages(
-          data.messages.map(m => ({
+          data.messages.map((m) => ({
             id: m.id,
             role: m.role,
             content: m.content,
+            // AI SDK v6 useChat expects `parts` array for rendering
+            parts: [{ type: 'text', text: m.content }],
+            createdAt: m.created_at ? new Date(m.created_at) : undefined,
           }))
         );
         setRetrievedProducts(data.products || []);
+        // Update both state and ref immediately to avoid stale conversationId
+        conversationIdRef.current = id;
         setConversationId(id);
-        scrollToBottom('auto');
+        // Defer scroll until after DOM paint
+        setTimeout(() => scrollToBottom('auto'), 80);
       }
     } catch (e) {
       console.error('Failed to load conversation:', e);
