@@ -75,6 +75,7 @@ export default function ChatInterface() {
 
   const {
     messages,
+    error,
     sendMessage,
     status,
     stop,
@@ -161,8 +162,8 @@ export default function ChatInterface() {
   const isLoading = status === 'submitted' || status === 'streaming';
 
   useEffect(() => {
-    if (isLoading) scrollToBottom('smooth');
-  }, [messages, isLoading]);
+    if (isLoading || error) scrollToBottom('smooth');
+  }, [messages, isLoading, error]);
 
   function handleScroll() {
     const el = scrollAreaRef.current;
@@ -253,6 +254,27 @@ export default function ChatInterface() {
                   </div>
                 </div>
               )}
+
+              {error && (
+                <div className="msg-row msg-row--bot">
+                  <div className="avatar-luna">
+                    <LunaAvatarSmall />
+                  </div>
+                  <div className="bubble bubble--bot bubble--error" style={{ color: '#d32f2f', backgroundColor: '#ffebee', border: '1px solid #ffcdd2' }}>
+                    {(() => {
+                      try {
+                        const parsed = JSON.parse(error.message);
+                        return parsed.error || 'Có lỗi xảy ra, vui lòng thử lại sau. 🙏';
+                      } catch {
+                        return error.message.includes('429') || error.message.includes('Quota') || error.message.includes('Hệ thống')
+                          ? 'Hệ thống đang bận, vui lòng thử lại sau 1 phút. 🙏'
+                          : (error.message || 'Có lỗi xảy ra, vui lòng thử lại sau. 🙏');
+                      }
+                    })()}
+                  </div>
+                </div>
+              )}
+
               <div ref={messagesEndRef} />
             </div>
           )}

@@ -164,12 +164,7 @@ export async function POST(req) {
 
   console.log(`[chat/route] hasContext=${hasContext} | products=${products.length}`);
 
-  // Persist user message (fire-and-forget, don't block the stream)
-  supabaseAdmin
-    .from('messages')
-    .insert({ conversation_id: convId, role: 'user', content: userQuery })
-    .then(() => { })
-    .catch((err) => console.error('Error saving user message:', err));
+  // Wait to persist user message until onFinish so it's grouped with AI response
 
   // ── Layer 1 Guard: No relevant context found ──────────────
   // If nothing in the vector DB passed the similarity threshold, return
@@ -181,10 +176,13 @@ export async function POST(req) {
       'Xin lỗi, hiện tại cơ sở dữ liệu của LunaBot chưa có thông tin về vấn đề này. ' +
       'Bạn vui lòng liên hệ trực tiếp bác sĩ da liễu để được tư vấn chính xác nhất nhé! 🙏';
 
-    // Persist the refusal as an assistant message so conversation history is complete
+    // Persist both user message and refusal so conversation history is complete
     supabaseAdmin
       .from('messages')
-      .insert({ conversation_id: convId, role: 'assistant', content: refusalText })
+      .insert([
+        { conversation_id: convId, role: 'user', content: userQuery },
+        { conversation_id: convId, role: 'assistant', content: refusalText }
+      ])
       .then(() => { })
       .catch(() => { });
 
@@ -249,16 +247,23 @@ export async function POST(req) {
         try {
           if (convId) {
             await Promise.allSettled([
-              // Save assistant reply
-              supabaseAdmin.from('messages').insert({
-                conversation_id: convId,
-                role: 'assistant',
-                content: text,
-                metadata: {
-                  product_ids: products.map((p) => p.id).filter(Boolean),
-                  retrieved_count: products.length,
+              // Save user message and assistant reply together
+              supabaseAdmin.from('messages').insert([
+                {
+                  conversation_id: convId,
+                  role: 'user',
+                  content: userQuery,
                 },
-              }),
+                {
+                  conversation_id: convId,
+                  role: 'assistant',
+                  content: text,
+                  metadata: {
+                    product_ids: products.map((p) => p.id).filter(Boolean),
+                    retrieved_count: products.length,
+                  },
+                }
+              ]),
               // Bump updated_at on the conversation
               supabaseAdmin
                 .from('conversations')
